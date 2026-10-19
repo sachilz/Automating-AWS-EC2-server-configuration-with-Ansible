@@ -1,0 +1,45 @@
+
+---
+- name: Provision database server on AWS
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Create database security group
+      amazon.aws.ec2_security_group:
+        name: ansible-db-sg
+        description: Security group for Ansible-managed database server
+        region: us-east-1
+        profile: ansible
+        vpc_id: vpc-00f95b290a7c44039
+        rules:
+          - proto: tcp
+            ports:
+              - 22
+            cidr_ip: 13.229.12.38/32
+            rule_desc: SSH access from my current public IP
+      register: db_security_group
+
+    - name: Launch database EC2 instance
+      amazon.aws.ec2_instance:
+        name: ansible-db-server
+        region: us-east-1
+        profile: ansible
+        key_name: ansible-lab-key
+        instance_type: t3.micro
+        image_id: ami-02a9cdd4e98bc3c78
+        security_groups:
+          - "{{ db_security_group.group_id }}"
+        network:
+          assign_public_ip: true
+        state: running
+        wait: true
+        wait_timeout: 600
+      register: db_instance
+
+    - name: Display database instance details
+      ansible.builtin.debug:
+        msg:
+          - "Instance ID: {{ db_instance.instances[0].instance_id }}"
+          - "Public IP: {{ db_instance.instances[0].public_ip_address }}"

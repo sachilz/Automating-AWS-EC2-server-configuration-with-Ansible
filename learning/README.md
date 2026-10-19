@@ -47,6 +47,14 @@ Welcome to your Ansible learning folder. This directory tracks core concepts, co
   - Reading the terminal output and `PLAY RECAP` (`ok`, `changed`, `failed`)
   - Understanding Ansible **Idempotency**
   - Useful flags (`--check`, `--diff`, `-l`)
+- [08. Troubleshooting SSH Timeouts & AWS Security Groups](file:///c:/Users/sachintha/Desktop/ansible-remote-server-configuration/learning/08-troubleshooting-ssh-timeouts-and-security-groups.md)
+  - Diagnosing `Connection timed out during banner exchange`
+  - Timeout vs Authentication Failure (`Permission denied`)
+  - Inspecting instance security groups via AWS CLI (`describe-instances`)
+  - Attaching security groups on the fly (`modify-instance-attribute`)
+  - Correcting `security_groups` syntax in `amazon.aws.ec2_instance`
+  - First-time SSH host key fingerprint prompt handling
+
 
 
 
