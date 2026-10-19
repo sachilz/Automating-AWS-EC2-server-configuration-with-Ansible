@@ -163,7 +163,7 @@ The exact number of successful tasks may differ depending on how many tasks are 
 
 ---
 
-## 5. Helpful Playbook CLI Flags
+## 6. Helpful Playbook CLI Flags
 
 | Flag | Command Example | What it does |
 | :--- | :--- | :--- |
