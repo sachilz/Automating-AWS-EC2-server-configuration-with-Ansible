@@ -54,6 +54,19 @@ Welcome to your Ansible learning folder. This directory tracks core concepts, co
   - Attaching security groups on the fly (`modify-instance-attribute`)
   - Correcting `security_groups` syntax in `amazon.aws.ec2_instance`
   - First-time SSH host key fingerprint prompt handling
+- [09. Verifying Remote Services with Ad-Hoc Commands](file:///c:/Users/sachintha/Desktop/ansible-remote-server-configuration/learning/09-ansible-ad-hoc-service-verification.md)
+  - Privilege escalation flag (`-b` / `--become`)
+  - Executing system commands with `-m command -a "..."`
+  - Checking `systemctl is-active` for Apache (`apache2`) and MariaDB (`mariadb`)
+  - Understanding `rc=0`, `stdout: active`, and why `command` shows `CHANGED`
+  - Handy ad-hoc commands cheat sheet (`uptime`, `df -h`)
+- [10. Organizing Playbooks with Ansible Roles & `roles_path`](file:///c:/Users/sachintha/Desktop/ansible-remote-server-configuration/learning/10-ansible-roles-and-roles-path.md)
+  - Refactoring monolithic playbooks into modular roles
+  - Directory structure (`roles/webserver/tasks/main.yml`, `roles/database/tasks/main.yml`)
+  - Solving the "Role Not Found" issue with `roles_path = ./roles` in `ansible.cfg`
+  - Calling roles inside `playbooks/site.yml`
+
+
 
 
 

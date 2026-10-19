@@ -1,0 +1,23 @@
+cat > .gitignore <<'EOF'
+# Secrets and private keys
+*.pem
+*.key
+.aws/
+
+# Python
+__pycache__/
+*.pyc
+
+# Ansible
+*.retry
+
+# Environment variables
+.env
+.env.*
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+EOF
